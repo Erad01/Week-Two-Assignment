@@ -7,3 +7,10 @@
 body {
   background-color: peru;
 }
+
+#thumbnail-container {
+    width: 400px;
+    height: 150px;
+
+    background-color: aliceblue;
+}
