@@ -11,6 +11,12 @@ body {
 #thumbnail-container {
     width: 400px;
     height: 150px;
-
     background-color: aliceblue;
+    display: flex;
+    
+}
+
+.small-image {
+    width: 150px;
+    height: 150px;
 }
