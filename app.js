@@ -18,6 +18,17 @@ const images = [
     className: "small-image",
   },
 ];
+const largeContainer = document.getElementById("large-image-container")
+
+let imageIndex = 0;
+
+window.onload = function(){
+  const largeImage = document.createElement("img");
+  largeImage.src = images[imageIndex].url
+  largeImage.alt = images[imageIndex].altText;
+  largeImage.classList.add("large-image-class");
+  largeContainer.appendChild(largeImage)
+}
 
 function createThumbnails (images){
     const thumbnail = document.getElementById("thumbnail-container");
@@ -38,12 +49,38 @@ createThumbnails(images)
 
 
 function createLargeImagesHandler(event){
-    const largeContainer = document.getElementById("large-image-container")
     largeContainer.innerHTML = "";
     const largeImage = document.createElement("img");
     largeImage.src = event.target.src;
     largeImage.alt = event.target.alt;
     largeImage.classList.add("large-image-class");
-    largeContainer.appendChild(largeImage)
+    largeContainer.appendChild(largeImage);
     
+}
+
+function showImage (index){
+  if (index >= images.length){
+    imageIndex = 0;
+  }else if (index < 0){
+    imageIndex = images.length - 1;
+  }
+
+  largeContainer.innerHTML = "";
+  const largeImage = document.createElement("img");
+  largeImage.src = images[imageIndex].url
+  largeImage.alt = images[imageIndex].altText;
+  largeImage.classList.add("large-image-class");
+  largeContainer.appendChild(largeImage)
+
+}
+
+function next(){
+  imageIndex++;
+  showImage(imageIndex);
+  
+}
+
+function prev(){
+  imageIndex--;
+  showImage(imageIndex)
 }
